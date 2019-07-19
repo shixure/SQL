@@ -1,0 +1,1 @@
+delete from sx.xs where sno='000000';

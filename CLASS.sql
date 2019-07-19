@@ -1,0 +1,27 @@
+CREATE TABLE DEPT(
+DEPTID CHAR(3)PRIMARY KEY,
+DNAME VARCHAR2(50)
+);
+insert into dept values('001','shichangbu');
+insert into dept values('002','renshibu');
+insert into dept values('003','shouhouweixiubu');
+insert into dept values('004',null);
+SELECT * FROM dept;
+DELETE FROM DEPT WHERE DEPTID='004';
+
+CREATE TABLE EMP(
+EID CHAR(4)PRIMARY KEY,
+EMP VARCHAR2(50),
+HIDATE DATE,
+SEX CHAR(5),
+ADDR VARCHAR2(100),
+DEPTID CHAR(3),
+FOREIGN KEY(DEPTID) REFERENCES DEPT(DEPTID),
+CONSTRAINT C_SEX CHECK(SEX IN('MAN','WOMAN'))
+);
+insert into EMP values('2503','ZHANGSAN','2017-02-09','MAN','ANHUIMAANSHANG','001');
+insert into EMP values('4319','LIXIAOSI','2015-04-05','WOMAN','JIANSHUNANJIN','002');
+insert into EMP values('7701','OUYANFEIFAN','2018-01-04','MAN','ANHUIHEFEI','003');
+SELECT * FROM EMP;
+DELETE FROM EMP WHERE EID='7701';
+DROP TABLE EMP1;
